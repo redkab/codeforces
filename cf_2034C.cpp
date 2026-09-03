@@ -37,6 +37,8 @@ bool isTrapped(vector<vector<char>>&maze, int r, int c, vector<vector<int>>&dp)
 
 int main()
 {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
     int t;
     cin>>t;
     while(t--)
