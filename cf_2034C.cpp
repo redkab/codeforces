@@ -29,11 +29,7 @@ bool isTrapped(vector<vector<char>>&maze, int r, int c, vector<vector<int>>&dp)
     {
         nr = r + dr[i];
         nc = c + dc[i];
-        if(nr>=0 && nr<n && nc>=0 && nc<m)
-        {
-            int s  =dp[nr][nc];
-            if(s==1 || s==2 || isTrapped(maze, nr, nc, dp))return dp[r][c] = 1;
-        }
+        if(isTrapped(maze, nr, nc, dp))return dp[r][c] = 1;
     }
     return dp[r][c] = 0;
 }
