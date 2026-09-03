@@ -9,9 +9,10 @@ bool isTrapped(vector<vector<char>>&maze, int r, int c, vector<vector<int>>&dp)
     int m = maze[0].size();
     if(!(r>=0 && r<n && c>=0 && c<m))return 0;
 
+    if(dp[r][c] == 2)return 1;
     if(dp[r][c] != -1)return dp[r][c];
+    dp[r][c] = 2;
 
-    dp[r][c] = 1;
     int nr=r, nc=c;
     if(maze[r][c] != '?')
     {
@@ -28,7 +29,11 @@ bool isTrapped(vector<vector<char>>&maze, int r, int c, vector<vector<int>>&dp)
     {
         nr = r + dr[i];
         nc = c + dc[i];
-        if(isTrapped(maze, nr, nc, dp))return dp[r][c] = 1;
+        if(nr>=0 && nr<n && nc>=0 && nc<m)
+        {
+            int s  =dp[nr][nc];
+            if(s==1 || s==2 || isTrapped(maze, nr, nc, dp))return dp[r][c] = 1;
+        }
     }
     return dp[r][c] = 0;
 }
