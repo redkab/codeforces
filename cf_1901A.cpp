@@ -26,8 +26,9 @@ int main()
     {
         int n, x;
         cin>>n>>x;
-        vector<int>locs(n);
-        for(int i=0; i<n; i++)cin>>locs[i];
+        vector<int>locs(n+1);
+        locs[0] = 0;
+        for(int i=1; i<=n; i++)cin>>locs[i];
         cout<<minCap(locs, x)<<'\n';
     }
 }
