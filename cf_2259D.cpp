@@ -27,6 +27,7 @@ void solve(vector<int>&v)
         else if(v[i] == 0)cout<<'B';
         else cout<<'C';
     }
+    cout<<'\n';
 }
 
 int main()
