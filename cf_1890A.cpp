@@ -4,27 +4,27 @@ using namespace std;
 void solve(vector<int>&v)
 {
     int n =  v.size();
-    vector<int>x;
-    sort(v.begin(), v.end());
-    int f=0, b=n-1;
-    while(f<=b)
+    map<int, int>m;
+    for(int i=0; i<n; i++)m[v[i]]++;
+    if(m.size()>2)
     {
-        if(f==b)
-        {
-            x.push_back(v[f]);
-            break;
-        }
-        x.push_back(v[f++]);
-        x.push_back(v[b--]);
+        cout<<"NO\n";
+        return;
     }
-    int s = x[0] + x[1];
-    for(int i=1; i<n-1; i++)
+    if(m.size()==1)
     {
-        if(x[i] + x[i+1] != s)
-        {
-            cout<<"NO\n";
-            return;
-        }
+        cout<<"YES\n";
+        return;
+    }
+    vector<int>x;
+    for(auto &[a, b] : m)
+    {
+        x.push_back(b);
+    }
+    if(abs(x[0] - x[1]) > 1)
+    {
+        cout<<"NO\n";
+        return;
     }
     cout<<"YES\n";
 }
