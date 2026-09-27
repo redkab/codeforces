@@ -4,9 +4,10 @@ using namespace std;
 
 void solve(vector<int>&v)
 {
-    int ex=0;
+    
     int n = v.size();
     vector<int>a;
+    a.push_back(v[0]);
     for(int i=1; i<n; i++)
     {
         if(v[i-1] <= v[i])a.push_back(v[i]);
