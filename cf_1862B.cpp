@@ -4,7 +4,6 @@ using namespace std;
 
 void solve(vector<int>&v)
 {
-    cout<<v[0]<<' ';
     int ex=0;
     int n = v.size();
     vector<int>a;
@@ -15,10 +14,9 @@ void solve(vector<int>&v)
         {
             a.push_back(v[i]);
             a.push_back(v[i]);
-            ex++;
         }
     }
-    cout<<n+ex<<'\n';
+    cout<<a.size()<<'\n';
     for(int i=0; i<a.size(); i++)cout<<a[i]<<' ';
     cout<<'\n';
 }
