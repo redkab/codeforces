@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-void solve(int n, int k)
+void solve(long long int n, long long int k)
 {
     if(n%2==0)
     {
@@ -30,7 +30,7 @@ int main()
     cin>>t;
     while(t--)
     {
-        int n, k;
+        long long int n, k;
         cin>>n>>k;
         solve(n, k);
     }
