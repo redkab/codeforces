@@ -6,10 +6,10 @@ using namespace std;
 void solve(vector<int>&v, int a, int b)
 {
     int n = v.size();
-    int ex=b;
+    long long int ex= (long long)b;
     for(int i=0; i<n; i++)
     {
-        ex += min(a-1, v[i]) ;
+        ex += (long long)min(a-1, v[i]) ;
     }
     cout<<ex<<endl;
 }
