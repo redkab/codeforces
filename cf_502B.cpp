@@ -44,7 +44,7 @@ void solve(int n, int m)
             }
             for(int neigh : al[curr])
             {
-                if(!vis[neigh])
+                if(!vis[neigh] && neigh >= 0)
                 {
                     vis[neigh] = 1;
                     q.push(neigh);
