@@ -12,7 +12,7 @@ void solve(int n, int m)
         cout<<n-m<<endl;
         return;
     }
-    int up=1;
+    int up=n;
     while(up <= m)up*=2;
 
     vector<vector<int>>al(up+1);
