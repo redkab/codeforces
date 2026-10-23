@@ -12,15 +12,14 @@ void solve(int n, int m)
         cout<<n-m<<endl;
         return;
     }
-    int up=n;
-    while(up <= m)up*=2;
+    int up=20000;
 
     vector<vector<int>>al(up+1);
     for(int i=1; i<=up; i++)
     {
         al[i].push_back(i-1);
     }
-    for(int i=0; i<=up; i++)
+    for(int i=0; i<=10000; i++)
     {
         al[i].push_back(i*2);
     }
@@ -38,7 +37,7 @@ void solve(int n, int m)
         {
             int curr = q.front();
             q.pop();
-            if(lev == m)
+            if(curr == m)
             {
                 cout<<lev<<endl;
                 return;
