@@ -3,7 +3,7 @@
 #include<algorithm>
 using namespace std;
 
-void solve(vector<int>&v, int k)
+void solve(vector<int>&v, long long int k)
 {
     int mon=0;
     if(k==0)
@@ -12,7 +12,7 @@ void solve(vector<int>&v, int k)
         return;
     }
     int n = v.size();
-    int sum=0;
+    long long int sum=0;
     int i=0;
     for(int i=0; i<n; i++)
     {
@@ -31,7 +31,7 @@ int main()
     sort(v.begin(), v.end());
     while(q--)
     {
-        int k;
+        long long int k;
         cin>>k;
         solve(v, k);
     }
