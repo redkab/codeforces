@@ -6,7 +6,6 @@ using namespace std;
 void solve(vector<int>&v, int k)
 {
 
-    cout<<"ans: ";
     int n = v.size();
     int del;
     int ec=0;
