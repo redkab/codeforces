@@ -29,7 +29,7 @@ void solve(vector<int>&v, int k)
     }
 
     int altOps;
-    if(ec==2)
+    if(ec>=2)
     {
         cout<<0<<endl;
         return;
