@@ -6,15 +6,16 @@ void solve(long long a, long long b, long long c, long long d)
     long long dy = d-b;
     if(dy<0)
     {
-        cout<<"NO\n";
+        cout<<"-1\n";
         return;
     }
     if(c>a+dy)
     {
-        cout<<"NO\n";
+        cout<<"-1\n";
         return;
     }
-    cout<<"YES\n";
+    long long moves = dy + a-c + dy;
+    cout<<moves<<'\n';
 
 }
 int main()
