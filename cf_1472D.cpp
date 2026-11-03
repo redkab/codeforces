@@ -17,15 +17,15 @@ long long f(int i, int j, vector<long long>&eve, vector<long long>&odd)
     {
         return dp[i][j] = max(f(i-1, j, eve, odd) + eve[i-1], f(i, j-1, eve, odd));
     }
-    else return dp[i][j] = max(f(i-1, j, eve, odd), f(i, j-1, eve, odd) + odd[j-1]);
+    else return dp[i][j] = min(f(i-1, j, eve, odd), f(i, j-1, eve, odd) - odd[j-1]);
 }
 
 void solve(vector<long long>&odd, vector<long long>&even)
 {
     int e = even.size(), o = odd.size();
-    for(int i=0; i<=e; i++)
+    for(int i=e; i>=0; i--)
     {
-        for(int j=0; j<=o; j++)
+        for(int j=o; j>=0; j--)
         {
             if(dp[i][j] == LLONG_MAX)dp[i][j] = f(i, j, even, odd);
         }
