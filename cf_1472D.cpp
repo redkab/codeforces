@@ -2,13 +2,15 @@
 #include<vector>
 #include<algorithm>
 #include<utility>
+#include<climits>
 using namespace std;
 
-vector<vector<int>>dp;
+vector<vector<long long>>dp;
 
-int f(int i, int j, vector<int>&eve, vector<int>&odd)
+long long f(int i, int j, vector<long long>&eve, vector<long long>&odd)
 {
     if(dp[i][j] != -1)return dp[i][j];
+    if(i==0 && j==0)return dp[i][j] = 0;
     int n = dp.size() + dp[0].size();
 
     if(n%2 == (i+j)%2)
@@ -18,7 +20,7 @@ int f(int i, int j, vector<int>&eve, vector<int>&odd)
     else return dp[i][j] = max(f(i-1, j, eve, odd), f(i, j-1, eve, odd) + odd[j-1]);
 }
 
-void solve(vector<int>&odd, vector<int>&even)
+void solve(vector<long long>&odd, vector<long long>&even)
 {
     int e = even.size(), o = odd.size();
     for(int i=0; i<=e; i++)
@@ -41,7 +43,7 @@ int main()
     {
         int n;
         cin>>n;
-        vector<int>even, odd;
+        vector<long long >even, odd;
         for(int i=0; i<n; i++)
         {
             int x;
@@ -52,7 +54,7 @@ int main()
         sort(odd.begin(), odd.end());
         sort(even.begin(), even.end());
         int e = even.size(), o = odd.size();
-        dp.assign(e+1, vector<int>(o+1, -1));
+        dp.assign(e+1, vector<long long>(o+1, LLONG_MAX));
         solve(odd, even);
     }
 }
