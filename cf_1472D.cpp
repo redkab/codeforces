@@ -9,7 +9,7 @@ vector<vector<long long>>dp;
 
 long long f(int i, int j, vector<long long>&eve, vector<long long>&odd)
 {
-    if(dp[i][j] != -1)return dp[i][j];
+    if(dp[i][j] != LLONG_MAX)return dp[i][j];
     if(i==0 && j==0)return dp[i][j] = 0;
     int n = dp.size() + dp[0].size();
 
@@ -27,7 +27,7 @@ void solve(vector<long long>&odd, vector<long long>&even)
     {
         for(int j=0; j<=o; j++)
         {
-            if(dp[i][j] == -1)dp[i][j] = f(i, j, even, odd);
+            if(dp[i][j] == LLONG_MAX)dp[i][j] = f(i, j, even, odd);
         }
     }
     if(dp[0][0] >0)cout<<"Alice\n";
