@@ -12,24 +12,26 @@ long long f(int i, int j, vector<long long>&eve, vector<long long>&odd)
     if(dp[i][j] != LLONG_MAX)return dp[i][j];
     if(i==0 && j==0)return dp[i][j] = 0;
     int n = dp.size() + dp[0].size();
-
-    if(n%2 == (i+j)%2)
+    if (n%2 == (i+j)%2)
     {
-        return dp[i][j] = max(f(i-1, j, eve, odd) + eve[i-1], f(i, j-1, eve, odd));
+    long long best = LLONG_MIN;
+    if (i > 0) best = max(best, f(i - 1, j, eve, odd) + eve[i - 1]);
+    if (j > 0) best = max(best, f(i, j - 1, eve, odd));
+    return dp[i][j] = best;
+    } 
+    else 
+    {
+    long long best = LLONG_MAX;
+    if (i > 0) best = min(best, f(i - 1, j, eve, odd));
+    if (j > 0) best = min(best, f(i, j - 1, eve, odd) - odd[j - 1]);
+    return dp[i][j] = best;
     }
-    else return dp[i][j] = min(f(i-1, j, eve, odd), f(i, j-1, eve, odd) - odd[j-1]);
 }
 
 void solve(vector<long long>&odd, vector<long long>&even)
 {
     int e = even.size(), o = odd.size();
-    for(int i=e; i>=0; i--)
-    {
-        for(int j=o; j>=0; j--)
-        {
-            if(dp[i][j] == LLONG_MAX)dp[i][j] = f(i, j, even, odd);
-        }
-    }
+    f(e, 0, even, odd);
     if(dp[0][0] >0)cout<<"Alice\n";
     else if(dp[0][0] == 0)cout<<"Tie\n";
     else cout<<"Bob\n";
