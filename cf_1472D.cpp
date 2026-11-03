@@ -31,9 +31,9 @@ long long f(int i, int j, vector<long long>&eve, vector<long long>&odd)
 void solve(vector<long long>&odd, vector<long long>&even)
 {
     int e = even.size(), o = odd.size();
-    f(e, 0, even, odd);
-    if(dp[0][0] >0)cout<<"Alice\n";
-    else if(dp[0][0] == 0)cout<<"Tie\n";
+    long long ans = f(e, o, even, odd);
+    if(ans >0)cout<<"Alice\n";
+    else if(ans == 0)cout<<"Tie\n";
     else cout<<"Bob\n";
 }
 
