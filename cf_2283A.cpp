@@ -9,7 +9,7 @@ void solve(int l, int r)
         return;
     }
 
-    if(l<0 && r>0)
+    if(l<=0 && r>=0)
     {
         int x = min(abs(l), abs(r));
 
