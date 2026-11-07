@@ -11,22 +11,29 @@ void solve(vector<int>&a, vector<int>&b, int k)
         if(a[i]%2)ao++;
         if(b[i]%2)bo++;
     }
-    if(k%2==0)
+    int ae = n-ao, be = n-bo;
+    int ee = min(ae, be);
+    int oo = min(ao, bo);
+    int eo = bo-oo;
+    int oe = be-ee;
+    if(k%2==1)
     {
-        if(ao>=bo)
+        if(oe>0)
         {
-            cout<<"YEs\n";
+            cout<<"NO\n";
             return;
         }
-        else cout<<"NO\n";
     }
-    int ae = n-ao, be = n-bo;
-    if(ae >= be)
+    if(k%2==0)
     {
-        cout<<"Yes\n";
-        return;
+        if(eo>0)
+        {
+            cout<<"NO\n";
+            return;
+        }
     }
-    else cout<<"No\n";
+    cout<<"YES\n";
+
 }
 
 int main()
