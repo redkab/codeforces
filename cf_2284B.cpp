@@ -5,24 +5,17 @@ using namespace std;
 
 void solve(vector<int>&v, int k)
 {
-    vector<int>ans;
-    for(int i=k+1; i<v.size(); i++)
-    {
-        ans.push_back(v[i]);
-    }
-    for(int i=k; i>=0; i--)
-    {
-        ans.push_back(v[i]);
-    }
     int m = v[v.size()-1];
     int c = count(v.begin(), v.end(), m);
+    reverse(v.begin(), v.end());
+    reverse(v.begin(), v.begin()+k);
     if(c>k)
     {
         cout<<"NO\n";
         return;
     }
     cout<<"YES\n";
-    for(int n : ans)
+    for(int n : v)
     {
         cout<<n<<' ';
     }
