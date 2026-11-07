@@ -8,7 +8,7 @@ void solve(int n)
     cout<<'?'<<' '<<1<<' '<<n<<endl;
     int oc;
     cin>>oc;
-    if(oc==0)
+    if(oc==0 || n-oc==0)
     {
         cout<<"! NO"<<endl;
     }
