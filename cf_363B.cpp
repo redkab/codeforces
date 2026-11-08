@@ -10,7 +10,7 @@ void solve(vector<int>&v, int k)
     int n = v.size();
     int f=0, b=k-1;
     for(int i=0; i<k; i++)sum += v[i];
-    while(b<n)
+    while(b<n-1)
     {
         if(sum < ans)
         {
@@ -18,11 +18,11 @@ void solve(vector<int>&v, int k)
             ans = sum;
         }
         sum -= v[f];
-        sum += v[b];
+        sum += v[b+1];
         f++;
         b++;
     }
-    cout<<ind<<endl;
+    cout<<ind+1<<endl;
 }
 
 int main()
