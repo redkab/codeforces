@@ -10,13 +10,14 @@ void solve(vector<int>&v, int k)
     int n = v.size();
     int f=0, b=k-1;
     for(int i=0; i<k; i++)sum += v[i];
-    while(b<n-1)
+    while(b<n)
     {
         if(sum < ans)
         {
             ind = f;
             ans = sum;
         }
+        if(b==n-1)break;
         sum -= v[f];
         sum += v[b+1];
         f++;
