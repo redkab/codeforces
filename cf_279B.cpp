@@ -5,17 +5,24 @@ using namespace std;
 
 void solve(vector<int>&v, int f)
 {
-    int sum=0; 
-    sort(v.begin(), v.end());
-    for(int i=0; i<v.size(); i++)
+    int sum=0, ans=0;
+    int r=0, l=0;
+    int n = v.size();
+    for(int r=0; r<n; r++)
     {
-        if(sum + v[i] < f)sum += v[i];
-        else 
+        sum += v[r];
+        while(sum > f)
         {
-            cout<<i<<'\n';
-            return;
+            sum -= v[l];
+            l++;
         }
+        ans = max(ans, r-l+1);
     }
+    cout<<ans<<endl;
+
+
+
+
 }
 
 int main()
