@@ -1,36 +1,21 @@
 #include<iostream>
 #include<vector>
-#include<queue>
 using namespace std;
 
 void solve(int n, int k)
 {
-    queue<int>q;
     int lev=0;
-    q.push(n);
+    int h=n, l=n;
 
-    while(!q.empty())
+    while(h>=k)
     {
-        int s = q.size();
-        for(int i=0; i<s; i++)
+        if(h==k || l==k)
         {
-            int v = q.front();
-            q.pop();
-            if(v==k)
-            {
-                cout<<lev<<'\n';
-                return;
-            }
-            if(v%2==0)
-            {
-                if(v/2)q.push(v/2);
-            }
-            else
-            {
-                if(v/2)q.push(v/2);
-                if(v/2)q.push(v/2 + 1);
-            }
+            cout<<lev<<'\n';
+            return;
         }
+        l/=2;
+        h = h/2 + h%2;
         lev++;
     }
     cout<<-1<<'\n';
