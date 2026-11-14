@@ -10,7 +10,7 @@ void solve(long long n, long long t)
         cout<<time<<'\n';
         return;
     }
-    time = 2*t + (n*(12*t + (n/1 - 1)*4*t))/4;
+    time = (n+1)*(n+1)*t/2;
     cout<<time<<'\n';
 }
 int main()
