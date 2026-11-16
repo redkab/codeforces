@@ -9,8 +9,8 @@ void solve(int n)
         cout<<-1<<'\n';
         return;
     }
-    for(int i=n-2; i<=n; i++)cout<<i<<' ';
-    for(int i=1; i<n-2; i++)cout<<i<<' ';
+    cout<<4<<' '<<2<<' '<<3<<' '<<1<<' ';
+    for(int i=5; i<=n; i++)cout<<i<<' ';
     cout<<'\n';
 
 }
