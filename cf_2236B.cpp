@@ -5,23 +5,21 @@ using namespace std;
 void solve(string &s, int k)
 {
     int n = s.length();
-    for(int i=0; i<n-k; i++)
+    for(int i=0; i<k; i++)
     {
-        if(s[i] == '1' && s[i+k] == '1')
+        int c=0;
+        for(int j=i; j<n; j+=k)
         {
-            s[i] = '0';
-            s[i+k] = '0';
+            if(s[j] == '1')c++;
         }
-    }
-    for(char c:s)
-    {
-        if(c=='1')
+        if(c%2)
         {
             cout<<"NO\n";
             return;
         }
     }
     cout<<"YES\n";
+
 }
 
 int main()
