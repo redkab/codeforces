@@ -5,6 +5,19 @@
 using namespace std;
 typedef long long ll;
 
+ll power(ll base, ll exp, ll m)
+{
+    ll ans =1;
+    if(m==1)return 0;
+    base %= m;
+    while(exp)
+    {
+        if(exp&1)ans = (ans*base)%m;
+        base = (base*base)%m;
+        exp>>=1;
+    }
+    return ans;
+}
 void solve(vector<ll>&v)
 {
     int n = v.size();
@@ -15,7 +28,7 @@ void solve(vector<ll>&v)
     for(int i=0; i<n; i++)
     {
         if(i!= n-1 && v[i] == v[i+1])break;
-        ll x = pow(v[i]-1, i+1);
+        ll x = power(v[i]-1, i+1, m);
         ans = (ans + x)%m;
     }
     cout<<ans<<'\n';
