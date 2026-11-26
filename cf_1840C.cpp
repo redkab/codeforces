@@ -2,7 +2,7 @@
 #include<vector>
 using namespace std;
 
-void solve(vector<long long int>&v, int k, int q)
+void solve(vector<long long int>&v, long long int k, int q)
 {
     long long ans=0;
     vector<long long>counts;
